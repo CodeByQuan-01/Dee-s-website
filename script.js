@@ -1,29 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('booking-form');
-    const formMessage = document.getElementById('form-message');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mainNav.classList.toggle('active');
+        this.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+    });
 
-    // Initialize EmailJS
-    (function() {
-        emailjs.init("YOUR_USER_ID"); // Replace with your actual EmailJS user ID
-    })();
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!mainNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+            mainNav.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    // Close menu when clicking a nav link
+    mainNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
 
-        // Get form data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-        // Send email using EmailJS
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", data)
-            .then(function(response) {
-                formMessage.textContent = "Thank you! Your booking request has been sent. We'll get back to you shortly.";
-                formMessage.style.color = "green";
-                form.reset();
-            }, function(error) {
-                formMessage.textContent = "Oops! Something went wrong. Please try again later.";
-                formMessage.style.color = "red";
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
+        });
     });
 });
 

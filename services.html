@@ -6,50 +6,159 @@
     <title>Our Services - Dee Aesthetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header class="site-header">
+        <div class="container">
             <div class="logo">
-                <img src="/placeholder.svg?height=150&width=150" alt="Dee Aesthetics Logo">
+                <img src="/placeholder.svg?height=60&width=60" alt="Dee Aesthetics Logo">
+                <span class="site-title">Dee Aesthetics</span>
             </div>
-            <p class="tagline">Flawless Lashes for Every Occasion</p>
-        </header>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="booking.html">Book Now</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle">
+                <span class="sr-only">Menu</span>
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
 
-        <main>
-            <section class="services">
+    <main>
+        <section class="page-header">
+            <div class="container">
                 <h1>Our Services</h1>
-                <div class="service-item">
-                    <h2>Classic Lashes</h2>
-                    <p>Natural-looking lash enhancement</p>
-                    <p class="price">Starting at $80</p>
-                </div>
-                <div class="service-item">
-                    <h2>Volume Lashes</h2>
-                    <p>Fuller, more dramatic look</p>
-                    <p class="price">Starting at $100</p>
-                </div>
-                <div class="service-item">
-                    <h2>Hybrid Lashes</h2>
-                    <p>Best of both classic and volume</p>
-                    <p class="price">Starting at $90</p>
-                </div>
-            </section>
-        </main>
+                <p>Discover our premium lash enhancement services</p>
+            </div>
+        </section>
 
-        <footer>
-            <p>&copy; 2023 Dee Aesthetics. All rights reserved.</p>
-        </footer>
-    </div>
+        <section class="services-list">
+            <div class="container">
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Classic Lashes">
+                            <div class="service-overlay">
+                                <i data-lucide="sparkles"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Classic Lashes</h3>
+                            <p>Natural-looking enhancement with one extension per natural lash. Perfect for everyday elegance.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle"></i> Natural appearance</li>
+                                <li><i data-lucide="check-circle"></i> Lightweight feel</li>
+                                <li><i data-lucide="check-circle"></i> 2-3 weeks duration</li>
+                            </ul>
+                            <div class="service-footer">
+                                <span class="price">$80</span>
+                                <a href="booking.html?service=Classic%20Lashes" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Volume Lashes">
+                            <div class="service-overlay">
+                                <i data-lucide="flower"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Volume Lashes</h3>
+                            <p>Dramatic, fluffy look with multiple extensions per natural lash. Perfect for those seeking glamour.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle"></i> Full, dramatic look</li>
+                                <li><i data-lucide="check-circle"></i> Customizable volume</li>
+                                <li><i data-lucide="check-circle"></i> 3-4 weeks duration</li>
+                            </ul>
+                            <div class="service-footer">
+                                <span class="price">$100</span>
+                                <a href="booking.html?service=Volume%20Lashes" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="/placeholder.svg?height=300&width=400" alt="Hybrid Lashes">
+                            <div class="service-overlay">
+                                <i data-lucide="star"></i>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Hybrid Lashes</h3>
+                            <p>Perfect blend of classic and volume techniques for a textured, dimensional look.</p>
+                            <ul class="service-features">
+                                <li><i data-lucide="check-circle"></i> Mixed technique</li>
+                                <li><i data-lucide="check-circle"></i> Natural yet bold</li>
+                                <li><i data-lucide="check-circle"></i> 2-3 weeks duration</li>
+                            </ul>
+                            <div class="service-footer">
+                                <span class="price">$90</span>
+                                <a href="booking.html?service=Hybrid%20Lashes" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i data-lucide="clock"></i>
+                        <h3>Duration</h3>
+                        <p>Appointments typically take 1.5-2 hours for a full set</p>
+                    </div>
+                    <div class="info-card">
+                        <i data-lucide="heart"></i>
+                        <h3>Aftercare</h3>
+                        <p>Detailed care instructions provided after service</p>
+                    </div>
+                    <div class="info-card">
+                        <i data-lucide="calendar"></i>
+                        <h3>Maintenance</h3>
+                        <p>Refills recommended every 2-3 weeks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <!-- Footer content same as index.html -->
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                const isClickInsideNav = mainNav.contains(event.target);
+                const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+                if (!isClickInsideNav && !isClickOnToggle && mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 

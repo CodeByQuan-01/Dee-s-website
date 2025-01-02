@@ -3,73 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Book an Appointment - Dee Aesthetics</title>
+    <title>Book Appointment - Dee Aesthetics</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header class="site-header">
+        <div class="container">
             <div class="logo">
-                <img src="/placeholder.svg?height=150&width=150" alt="Dee Aesthetics Logo">
+                <img src="/placeholder.svg?height=60&width=60" alt="Dee Aesthetics Logo">
+                <span class="site-title">Dee Aesthetics</span>
             </div>
-            <p class="tagline">Flawless Lashes for Every Occasion</p>
-        </header>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="booking.html" class="active">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Book Your Appointment</h1>
+                <p>Transform your look with our expert lash services</p>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            <div class="container">
+                <div class="booking-grid">
+                    <div class="booking-form-container">
+                        <form id="booking-form" class="booking-form">
+                            <div class="form-group">
+                                <label for="name">
+                                    <i data-lucide="user"></i>
+                                    Full Name
+                                </label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <i data-lucide="mail"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">
+                                    <i data-lucide="phone"></i>
+                                    Phone Number
+                                </label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service">
+                                    <i data-lucide="sparkles"></i>
+                                    Select Service
+                                </label>
+                                <select id="service" name="service" required>
+                                    <option value="">Choose a service...</option>
+                                    <option value="Classic Lashes">Classic Lashes - $80</option>
+                                    <option value="Volume Lashes">Volume Lashes - $100</option>
+                                    <option value="Hybrid Lashes">Hybrid Lashes - $90</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date">
+                                        <i data-lucide="calendar"></i>
+                                        Preferred Date
+                                    </label>
+                                    <input type="date" id="date" name="date" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="time">
+                                        <i data-lucide="clock"></i>
+                                        Preferred Time
+                                    </label>
+                                    <input type="time" id="time" name="time" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="notes">
+                                    <i data-lucide="message-square"></i>
+                                    Special Requests
+                                </label>
+                                <textarea id="notes" name="notes" rows="3"></textarea>
+                            </div>
+
+                            <div id="error-message" class="error-message" role="alert"></div>
+
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i data-lucide="calendar-plus"></i>
+                                Book Appointment
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="booking-info">
+                        <div class="info-card">
+                            <h3><i data-lucide="info"></i> Booking Information</h3>
+                            <ul>
+                                <li><i data-lucide="clock"></i> Duration: 1.5-2 hours</li>
+                                <li><i data-lucide="credit-card"></i> Deposit required: $20</li>
+                                <li><i data-lucide="calendar-x"></i> 24h cancellation policy</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h3><i data-lucide="help-circle"></i> Preparation Tips</h3>
+                            <ul>
+                                <li><i data-lucide="check"></i> Come with clean lashes</li>
+                                <li><i data-lucide="check"></i> Remove contact lenses</li>
+                                <li><i data-lucide="check"></i> Avoid caffeine before appointment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Dee Aesthetics Logo">
+                    <span>Dee Aesthetics</span>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i data-lucide="phone"></i> (123) 456-7890</p>
+                    <p><i data-lucide="mail"></i> info@deeaesthetics.com</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i data-lucide="instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i data-lucide="facebook"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i data-lucide="twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Dee Aesthetics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
         
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="booking.html">Book Now</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
 
-        <main>
-            <section class="booking">
-                <h1>Book an Appointment</h1>
-                <form id="booking-form" class="booking-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service</label>
-                        <select id="service" name="service" required class="form-control">
-                            <option value="">Select a Service</option>
-                            <option value="Classic Lashes">Classic Lashes</option>
-                            <option value="Volume Lashes">Volume Lashes</option>
-                            <option value="Hybrid Lashes">Hybrid Lashes</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Date</label>
-                        <input type="date" id="date" name="date" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="time">Time</label>
-                        <input type="time" id="time" name="time" required class="form-control">
-                    </div>
-                    <button type="submit" class="btn">Book Appointment</button>
-                </form>
-            </section>
-        </main>
+        mobileMenuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            this.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+        });
 
-        <footer>
-            <p>&copy; 2023 Dee Aesthetics. All rights reserved.</p>
-        </footer>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="https://cdn.flutterwave.com/v3.js"></script>
-    <script src="booking.js"></script>
+        // Form handling
+        const form = document.getElementById('booking-form');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            errorMessage.textContent = '';
+            
+            // Basic form validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            if (!name || !email || !phone || !service || !date || !time) {
+                errorMessage.textContent = 'Please fill in all required fields.';
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                return;
+            }
+
+            // Phone validation (simple check for digits only)
+            const phoneRegex = /^\d+$/;
+            if (!phoneRegex.test(phone)) {
+                errorMessage.textContent = 'Please enter a valid phone number (digits only).';
+                return;
+            }
+
+            // If all validations pass, proceed with form submission
+            const formData = new FormData(form);
+            const bookingData = Object.fromEntries(formData.entries());
+            
+            // Store booking data in localStorage
+            localStorage.setItem('bookingData', JSON.stringify(bookingData));
+            
+            // Redirect to payment page
+            window.location.href = 'payment.html';
+        });
+    </script>
 </body>
 </html>
 

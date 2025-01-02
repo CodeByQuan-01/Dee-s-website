@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Payment - Dee Aesthetics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="/placeholder.svg?height=60&width=60" alt="Dee Aesthetics Logo">
+                <span class="site-title">Dee Aesthetics</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Complete Your Booking</h1>
+                <p>Secure payment for your lash services</p>
+            </div>
+        </section>
+
+        <section class="payment-section">
+            <div class="container">
+                <div class="payment-grid">
+                    <div class="payment-form-container">
+                        <form id="payment-form" class="payment-form">
+                            <h2>Payment Details</h2>
+                            <div class="form-group">
+                                <label for="card-number">
+                                    <i data-lucide="credit-card"></i>
+                                    Card Number
+                                </label>
+                                <input type="text" id="card-number" name="card-number" required placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry-date">
+                                        <i data-lucide="calendar"></i>
+                                        Expiry Date
+                                    </label>
+                                    <input type="text" id="expiry-date" name="expiry-date" required placeholder="MM/YY">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">
+                                        <i data-lucide="lock"></i>
+                                        CVV
+                                    </label>
+                                    <input type="text" id="cvv" name="cvv" required placeholder="123">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name-on-card">
+                                    <i data-lucide="user"></i>
+                                    Name on Card
+                                </label>
+                                <input type="text" id="name-on-card" name="name-on-card" required>
+                            </div>
+                            <div id="error-message" class="error-message" role="alert"></div>
+                            <button type="submit" class="btn btn-primary btn-large">
+                                <i data-lucide="lock"></i>
+                                Pay Now
+                            </button>
+                        </form>
+                    </div>
+                    <div class="payment-summary">
+                        <div class="summary-card">
+                            <h3>Booking Summary</h3>
+                            <div class="summary-item">
+                                <span>Service:</span>
+                                <span id="service-name"></span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Date:</span>
+                                <span id="booking-date"></span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Time:</span>
+                                <span id="booking-time"></span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Total Amount:</span>
+                                <span id="total-amount"></span>
+                            </div>
+                        </div>
+                        <div class="secure-payment-note">
+                            <i data-lucide="shield"></i>
+                            <p>Your payment information is secure. We use industry-standard encryption to protect your data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Dee Aesthetics Logo">
+                    <span>Dee Aesthetics</span>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i data-lucide="phone"></i> (123) 456-7890</p>
+                    <p><i data-lucide="mail"></i> info@deeaesthetics.com</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i data-lucide="instagram"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i data-lucide="facebook"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer"><i data-lucide="twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Dee Aesthetics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            this.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+        });
+
+        // Retrieve booking data from localStorage
+        const bookingData = JSON.parse(localStorage.getItem('bookingData'));
+
+        // Populate booking summary
+        if (bookingData) {
+            document.getElementById('service-name').textContent = bookingData.service;
+            document.getElementById('booking-date').textContent = bookingData.date;
+            document.getElementById('booking-time').textContent = bookingData.time;
+
+            // Calculate total amount based on service
+            let totalAmount = 0;
+            switch (bookingData.service) {
+                case 'Classic Lashes':
+                    totalAmount = 80;
+                    break;
+                case 'Volume Lashes':
+                    totalAmount = 100;
+                    break;
+                case 'Hybrid Lashes':
+                    totalAmount = 90;
+                    break;
+                default:
+                    totalAmount = 0;
+            }
+            document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(2)}`;
+        } else {
+            // Handle case where booking data is not available
+            window.location.href = 'booking.html';
+        }
+
+        // Payment form handling
+        const form = document.getElementById('payment-form');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            errorMessage.textContent = '';
+
+            // Basic form validation
+            const cardNumber = document.getElementById('card-number').value.trim();
+            const expiryDate = document.getElementById('expiry-date').value.trim();
+            const cvv = document.getElementById('cvv').value.trim();
+            const nameOnCard = document.getElementById('name-on-card').value.trim();
+
+            if (!cardNumber || !expiryDate || !cvv || !nameOnCard) {
+                errorMessage.textContent = 'Please fill in all required fields.';
+                return;
+            }
+
+            // Additional validations can be added here
+
+            const amount = parseFloat(document.getElementById('total-amount').textContent.replace('$', '')) * 100; // Convert to cents
+
+            let handler = PaystackPop.setup({
+                key: 'YOUR_PAYSTACK_PUBLIC_KEY', // Replace with your actual Paystack public key
+                email: bookingData.email,
+                amount: amount,
+                currency: 'NGN',
+                ref: 'DEE' + Math.floor((Math.random() * 1000000000) + 1),
+                callback: function(response) {
+                    // Handle successful payment
+                    alert('Payment complete! Reference: ' + response.reference);
+                    // Clear booking data from localStorage
+                    localStorage.removeItem('bookingData');
+                    // Redirect to confirmation page
+                    window.location.href = 'confirmation.html';
+                },
+                onClose: function() {
+                    alert('Transaction was not completed, window closed.');
+                },
+            });
+            handler.openIframe();
+        });
+    </script>
+</body>
+</html>
+
